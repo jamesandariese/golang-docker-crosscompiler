@@ -1,6 +1,6 @@
 FROM debian:8
 
-RUN apt-get update && apt-get install -y git && git clone -q https://go.googlesource.com/go /gosrc && (cd /gosrc && git checkout -q release-branch.go1.4) && rm -rf /gosrc/.git && dpkg -P git && apt-get autoremove -y --purge && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git && git clone -q https://go.googlesource.com/go /gosrc && (cd /gosrc && git checkout -q release-branch.go1.4) && rm -rf /gosrc/.git && rm -rf /var/lib/apt/lists/*
 
 ENV GOROOT=/gosrc
 ENV GOPATH=/go
